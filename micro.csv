@@ -1,0 +1,43 @@
+name,cycle
+kvm-hypercall-Exit,21537215
+kvm-hypercall-Handling,1800271
+kvm-hypercall-Entry,41158207
+kvm-s2pf-Entry/Exit,24790652
+kvm-s2pf-Metadata,36321548
+kvm-s2pf-GetPage,377676002
+kvm-s2pf-Other,81816343
+kvm-s2pf-Mapping,29406905
+kvm-mmio-Entry/Exit,25444965
+kvm-mmio-Decode,3463674
+kvm-mmio-Transfer,554834681
+kvm-mmio-Other,0
+kvm-vplic-vEXT Insert,220
+duvisor-vplic-vEXT Insert,220
+duvisor-hypercall-Exit,6535561
+duvisor-hypercall-Handling,8701111
+duvisor-hypercall-Entry,4700446
+duvisor-s2pf-Entry/Exit,6081296
+duvisor-s2pf-Metadata,24625795
+duvisor-s2pf-GetPage,0
+duvisor-s2pf-Other,0
+duvisor-s2pf-Mapping,0
+duvisor-mmio-Entry/Exit,4325173
+duvisor-mmio-Decode,0
+duvisor-mmio-Transfer,0
+duvisor-mmio-Other,0
+vanillakvm-vplic-vEXT Insert,10437
+fig10b-pmp-wr,694
+fig10b-pmp-rd,1621
+fig10b-pmp-rdwr,656
+fig10b-pmp-frd,1259
+fig10b-pmp-fwr,672
+fig10b-pmp-fcp,415
+fig10b-pmp-bzero,680
+fig10b-nopmp-cp,448
+fig10b-nopmp-rd,1621
+fig10b-nopmp-rdwr,656
+fig10b-nopmp-frd,1259
+fig10b-nopmp-fwr,672
+fig10b-nopmp-fcp,415
+fig10b-nopmp-bzero,680
+fig10b-nopmp-bcopy,434

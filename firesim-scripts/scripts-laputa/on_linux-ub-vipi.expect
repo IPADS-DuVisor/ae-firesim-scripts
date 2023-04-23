@@ -1,0 +1,47 @@
+#!/usr/bin/expect
+
+set timeout -1
+
+set env(TERM) xterm-256color
+set env(SHELL) /bin/bash
+set env(SHLVL) 2
+set env(SUDO_COMMAND) /bin/bash
+set stty_init "-echo -ignpar -brkint -istrip cs8 -ixon -crtscts"
+set FPGA "192.168.3.100"
+set type [lindex $argv 0]
+
+spawn bash -c "ssh $FPGA"
+
+expect {
+    "centos@ip" {
+        send "screen -x fsim0\n"
+    }
+}
+
+expect {
+    "buildroot login" {
+        puts "start login"
+        send "root\n"
+        exp_continue
+    }
+
+    "Password:" {
+        send "firesim\n"
+        expect {
+            "#" {
+                send "cd / &&  mount ubuntu-vdisk.img root && chroot root bash\n"
+                puts "TRACE before buildroot"
+                expect  "root@buildroot:"
+                send "./mount_dev.sh && ./prepare_kill.sh && ./${type}.sh\n"
+                expect "/ #"
+                send "echo 'ready to mount' && mount /dev/vda /root && chroot /root bash\n"
+                expect "root@(none)"
+                send "stty $stty_init\n"
+                send "insmod vipi.ko\n"
+                expect "BUG:"
+                send "\x01"; send "d"
+            }
+        }
+    }
+}
+puts "Winter"

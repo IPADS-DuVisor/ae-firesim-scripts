@@ -1,0 +1,8 @@
+__pycache__/
+*.swp
+fig/*
+*.res
+log/
+scale-mem/*.laputa
+scale-mem/*.kvm
+dvext-impact/data-impact.dat

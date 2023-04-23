@@ -1,0 +1,51 @@
+#!/usr/bin/expect
+
+set timeout -1
+
+set env(TERM) xterm-256color
+set env(SHELL) /bin/bash
+set env(SHLVL) 2
+set env(SUDO_COMMAND) /bin/bash
+set HOST "172.16.0.4"
+set FPGA "192.168.3.100"
+set kvm_or_laputa [lindex $argv 0]
+set TIMES 5
+
+if {$kvm_or_laputa == "laputa"} {
+    set HOST_NET "host_net_ulh.sh"
+} else {
+    set HOST_NET "host_net.sh"
+}
+
+spawn bash -c "ssh $FPGA"
+
+expect {
+    "centos@ip" {
+        send "screen -x fsim0\n"
+    }
+}
+
+expect {
+    "buildroot login" {
+        puts "start login"
+        send "root\n"
+        exp_continue
+    }
+
+    "Password:" {
+        send "firesim\n"
+        expect {
+            "#" {
+                send "cd / &&  mount ubuntu-vdisk.img root && chroot root bash\n"
+                expect  "root@buildroot:"
+
+                send "./mount_dev.sh && ./prepare_kill.sh && ./${HOST_NET} && echo 512 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages && md5sum rootfs-net.img && ./${kvm_or_laputa}_linux.sh \n"
+
+                expect "truly_illegal_insn"
+                send "\x01"; send "d"
+            }
+        }
+    }
+}
+
+puts "Winter"

@@ -1,0 +1,116 @@
+#!/usr/bin/expect
+
+set timeout -1
+
+set env(TERM) xterm-256color
+set env(SHELL) /bin/bash
+set env(SHLVL) 2
+set env(SUDO_COMMAND) /bin/bash
+set HOST "172.16.0.4"
+set FPGA "192.168.3.100"
+set kvm_or_laputa [lindex $argv 0]
+set TIMES 1
+
+if {$kvm_or_laputa == "laputa"} {
+    set HOST_NET "host_net_ulh.sh"
+} else {
+    set HOST_NET "host_net.sh"
+}
+
+spawn bash -c "ssh $FPGA"
+
+expect {
+	"centos@ip" {
+		send "screen -r fsim0\n"
+	}
+}
+
+expect {
+    "buildroot login" {
+        puts "start login"
+            send "root\n"
+            exp_continue
+    }
+
+    "Password:" {
+        send "firesim\n"
+            expect {
+                "#" {
+                    send "cd / &&  mount ubuntu-vdisk.img root && chroot root bash\n"
+                        expect  "root@buildroot:"
+
+                        send "./mount_dev.sh && ./prepare_kill.sh && ./${HOST_NET} \n" 
+                        expect  "#"
+
+                        send "script /dev/null \n"
+                        expect "#"
+
+                        send "screen -e^ee -S guest0 \n"
+                        expect "#"
+
+                        #send "./${kvm_or_laputa}_linux.sh\n"
+                        #expect "Please press Enter to activate this console"
+                        send "./${kvm_or_laputa}_linux.sh | tee vm.log\n"
+                        expect "can't access tty; job control turned off"
+
+                        send "\n"	
+                        expect "#"
+
+                        send "mount /dev/vda root && chroot root bash \n"
+                        expect "#"
+                        send "\n"
+                        send "\n"
+
+                        expect "#"
+                        send "./mount_dev.sh && ./guest_net.sh \n"
+
+                        expect "#"
+                        send "\n"
+                        send "\n"
+
+                        expect "#"
+                        send "./memcached_server.sh && echo a  c\n"
+
+                        expect "a c"
+                        send "\x05"; send "d"
+                        send "\n"
+                        send "\n"
+                        
+                        expect "buildroot"
+                        send "\n"
+                        send "\n"
+                        
+                        expect "#"
+                        send "ping -c 1 $HOST\n"
+                        send "\n"
+
+                        expect "#"
+                        #send "HOST=$HOST TIMES=$TIMES taskset -a 0x8 ./memcached_client.sh && echo a  z\n"
+                        send "HOST=$HOST TIMES=$TIMES ./memcached_client.sh && echo a  z\n"
+                        
+                        expect "5 secs"
+                        #expect "Totals"
+                        send "\n"
+                        send "sleep 5\n"
+                        #send "sleep 5 && insmod stat.ko && rmmod stat\n"
+                        #send "insmod stat.ko && rmmod stat\n"
+                        
+                        expect "#"
+                        send "\n"
+                        send "kill -9 \\\$(ps aux | grep -i memcached_client | head -n 1 | awk '{print \\\$2}')\n"
+                        expect "#"
+                        send "\n"
+                        send "kill -9 \\\$(ps aux | grep -i memtier_benchmark | head -n 1 | awk '{print \\\$2}')\n"
+                        
+                        expect "#"
+                        send "cat vm.log\n"
+
+                        expect "#"
+                        send "echo 'ALL TEST DONE'\n"
+
+                        expect "#"
+                        send "\x01"; send "d"
+                }
+            }
+    }
+}

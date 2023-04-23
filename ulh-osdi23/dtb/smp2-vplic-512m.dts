@@ -1,0 +1,101 @@
+/dts-v1/;
+
+/ {
+	compatible = "linux,dummy-virt";
+	#address-cells = <0x02>;
+	#size-cells = <0x02>;
+
+	chosen {
+		bootargs = " console=ttyS0 root=/dev/vda rw  console=sbi earlycon=sbi";
+		stdout-path = "sbi";
+		linux,initrd-start = <0x00 0x86e9ebf8>;
+		linux,initrd-end = <0x00 0x87fffff8>;
+	};
+
+	memory {
+		device_type = "memory";
+		reg = <0x00 0x80000000 0x00 0x20000000>;
+	};
+
+	cpus {
+		#address-cells = <0x01>;
+		#size-cells = <0x00>;
+		timebase-frequency = <0xf4240>;
+
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "riscv";
+			mmu-type = "riscv,sv48";
+			riscv,isa = "rv64imafdcsu";
+			reg = <0x00>;
+			status = "okay";
+
+			interrupt-controller {
+				compatible = "riscv,cpu-intc";
+				#interrupt-cells = <0x01>;
+				interrupt-controller;
+				phandle = <0x02>;
+			};
+		};
+
+		cpu@1 {
+			device_type = "cpu";
+			compatible = "riscv";
+			mmu-type = "riscv,sv48";
+			riscv,isa = "rv64imafdcsu";
+			reg = <0x01>;
+			status = "okay";
+
+			interrupt-controller {
+				compatible = "riscv,cpu-intc";
+				#interrupt-cells = <0x01>;
+				interrupt-controller;
+				phandle = <0x03>;
+			};
+		};
+	};
+
+	smb {
+		compatible = "simple-bus";
+		#address-cells = <0x02>;
+		#size-cells = <0x02>;
+		interrupt-parent = <0x01>;
+		ranges;
+
+		interrupt-controller@0c000000 {
+			compatible = "riscv,plic0";
+			reg = <0x00 0xc000000 0x00 0x4000000>;
+			#interrupt-cells = <0x01>;
+			interrupt-controller;
+			riscv,max-priority = <0x0f>;
+			riscv,ndev = <0x1f>;
+			phandle = <0x01>;
+			interrupts-extended = <0x02 0xffffffff 0x02 0x0a 0x02 0x09 0x03 0xffffffff 0x03 0x0a 0x03 0x09>;
+		};
+
+		U6_16550A@3f8 {
+			compatible = "ns16550a";
+			reg = <0x00 0x3f8 0x00 0x08>;
+			interrupts = <0x23>;
+			clock-frequency = <0x1c2000>;
+		};
+
+		virtio@10000000 {
+			compatible = "virtio,mmio";
+			reg = <0x00 0x10000000 0x00 0x200>;
+			dma-coherent;
+			interrupts = <0x21>;
+		};
+
+		virtio@10000200 {
+			compatible = "virtio,mmio";
+			reg = <0x00 0x10000200 0x00 0x200>;
+			dma-coherent;
+			interrupts = <0x22>;
+		};
+	};
+
+	aliases {
+		serial0 = "/U6_16550A@3f8";
+	};
+};

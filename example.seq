@@ -1,0 +1,62 @@
+# app
+kvm 1
+kvm 2
+kvm 4
+native 1
+native 2
+native 4
+ulh 1
+ulh 2
+ulh 4
+
+# microbenchmark
+breakdown hypercall
+breakdown s2pf
+breakdown mmio
+breakdown vipi
+ub hypercall
+ub s2pf
+ub mmio
+vanilla-breakdown vipi
+
+# fig9
+kvm 1 fig9 dv
+kvm 1 fig9 vanilla
+kvm 2 fig9 dv
+kvm 2 fig9 vanilla
+kvm 4 fig9 dv
+kvm 4 fig9 vanilla
+
+# fig10
+kvm 4 fig10 512
+kvm 4 fig10 1024
+kvm 4 fig10 1536
+kvm 4 fig10 2048
+
+ulh 4 fig10 512
+ulh 4 fig10 1024
+ulh 4 fig10 1536
+ulh 4 fig10 2048
+
+# fig10b 
+ulh 1 fig10b pmp cp
+ulh 1 fig10b pmp wr
+ulh 1 fig10b pmp rd
+ulh 1 fig10b pmp rdwr
+ulh 1 fig10b pmp frd
+ulh 1 fig10b pmp fwr
+ulh 1 fig10b pmp fcp
+ulh 1 fig10b pmp bzero
+ulh 1 fig10b pmp bcopy
+ulh 1 fig10b nopmp cp
+ulh 1 fig10b nopmp wr
+ulh 1 fig10b nopmp rd
+ulh 1 fig10b nopmp rdwr
+ulh 1 fig10b nopmp frd
+ulh 1 fig10b nopmp fwr
+ulh 1 fig10b nopmp fcp
+ulh 1 fig10b nopmp bzero
+ulh 1 fig10b nopmp bcopy
+
+breakdown vplic
+vanilla-breakdown vplic

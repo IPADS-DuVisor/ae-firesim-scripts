@@ -1,0 +1,595 @@
+Script started, file is uartlog
+AFI ID for Slot  0: agfi-0e385553b7716f177
+AFI PCI  Vendor ID: 0x1d0f, Device ID 0xf000
+Using xdma write queue: /dev/xdma0_h2c_0
+Using xdma read queue: /dev/xdma0_c2h_0
+UART0 is here (stdin/stdout).
+command line for program 0. argc=56:
++permissive +mm_relaxFunctionalModel_0=0 +mm_openPagePolicy_0=1 +mm_backendLatency_0=2 +mm_schedulerWindowSize_0=8 +mm_transactionQueueDepth_0=8 +mm_dramTimings_tAL_0=0 +mm_dramTimings_tCAS_0=14 +mm_dramTimings_tCMD_0=1 +mm_dramTimings_tCWD_0=10 +mm_dramTimings_tCCD_0=4 +mm_dramTimings_tFAW_0=25 +mm_dramTimings_tRAS_0=33 +mm_dramTimings_tREFI_0=7800 +mm_dramTimings_tRC_0=47 +mm_dramTimings_tRCD_0=14 +mm_dramTimings_tRFC_0=160 +mm_dramTimings_tRRD_0=8 +mm_dramTimings_tRP_0=14 +mm_dramTimings_tRTP_0=8 +mm_dramTimings_tRTRS_0=2 +mm_dramTimings_tWR_0=15 +mm_dramTimings_tWTR_0=8 +mm_rowAddr_offset_0=18 +mm_rowAddr_mask_0=65535 +mm_rankAddr_offset_0=16 +mm_rankAddr_mask_0=3 +mm_bankAddr_offset_0=13 +mm_bankAddr_mask_0=7 +mm_llc_wayBits_0=3 +mm_llc_setBits_0=12 +mm_llc_blockBits_0=7 +mm_llc_activeMSHRs_0=8 +slotid=0 +profile-interval=-1 +macaddr0=00:12:6D:00:00:02 +blkdev0=linux-uniform0-br-base.img +niclog0=niclog0 +blkdev-log0=blkdev-log0 +trace-select=1 +trace-start=0 +trace-end=-1 +trace-output-format=0 +dwarf-file-name=linux-uniform0-br-base-bin-dwarf +autocounter-readrate=0 +autocounter-filename=AUTOCOUNTERFILE +drj_dtb=linux-uniform0-br-base-bin.dtb +drj_bin=linux-uniform0-br-base-bin +drj_rom=linux-uniform0-br-base-bin.rom +print-start=0 +print-end=-1 +linklatency0=6405 +netbw0=100 +shmemportname0=0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 +permissive-off linux-uniform0-br-base-bin 
+using link latency: 6405 cycles
+using netbw: 100
+using netburst: 8
+Using non-slot-id associated shmemportname:
+opening/creating shmem region
+/port_nts0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000_0
+Using non-slot-id associated shmemportname:
+opening/creating shmem region
+/port_stn0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000_0
+Using non-slot-id associated shmemportname:
+opening/creating shmem region
+/port_nts0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000_1
+Using non-slot-id associated shmemportname:
+opening/creating shmem region
+/port_stn0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000_1
+TraceRV 0: Tracing disabled, since +tracefile was not provided.
+TraceRV 1: Tracing disabled, since +tracefile was not provided.
+TraceRV 2: Tracing disabled, since +tracefile was not provided.
+TraceRV 3: Tracing disabled, since +tracefile was not provided.
+TraceRV 4: Tracing disabled, since +tracefile was not provided.
+TraceRV 5: Tracing disabled, since +tracefile was not provided.
+TraceRV 6: Tracing disabled, since +tracefile was not provided.
+TraceRV 7: Tracing disabled, since +tracefile was not provided.
+random min: 0x0, random max: 0xffffffffffffffff
+On init, 915 token slots available on input.
+TracerV: Trigger enabled from 0 to 18446744073709551614 cycles
+TracerV: Trigger enabled from 0 to 18446744073709551614 cycles
+TracerV: Trigger enabled from 0 to 18446744073709551614 cycles
+TracerV: Trigger enabled from 0 to 18446744073709551614 cycles
+TracerV: Trigger enabled from 0 to 18446744073709551614 cycles
+TracerV: Trigger enabled from 0 to 18446744073709551614 cycles
+TracerV: Trigger enabled from 0 to 18446744073709551614 cycles
+TracerV: Trigger enabled from 0 to 18446744073709551614 cycles
+Commencing simulation.
+
+OpenSBI v0.8
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name             : freechips,rocketchip-unknown
+Platform Features         : timer,mfdeleg
+Platform HART Count       : 8
+Firmware Base             : 0x80000000
+Firmware Size             : 168 KB
+Runtime SBI Version       : 0.2
+
+Domain0 Name              : root
+Domain0 Boot HART         : 3
+Domain0 HARTs             : 0*,1*,2*,3*,4*,5*,6*,7*
+Domain0 Region00          : 0x0000000080000000-0x000000008003ffff ()
+Domain0 Region01          : 0x0000000000000000-0xffffffffffffffff (R,W,X)
+Domain0 Next Address      : 0x0000000080200000
+Domain0 Next Arg1         : 0x0000000082400000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+
+Configure pmp pmp_addr 0x20000000,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 1, base: 0x80000000, order: 0x12 flag: 0x0
+Configure pmp pmp_addr 0x0,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 2, base: 0x0, order: 0x40 flag: 0x27
+Boot HART ID              : 3
+Boot HART Domain          : root
+Boot HART ISA             : rv64imafdcsuhx
+Boot HART Features        : scounteren,mcounteren,time
+Boot HART PMP Count       : 16
+Boot HART PMP Granularity : 4096
+Boot HART PMP Address Bits: 33
+Boot HART MHPM Count      : 0
+Boot HART MHPM Count      : 0
+Boot HART MIDELEG         : 0x0000000000000677
+Boot HART MEDELEG         : 0x0000000000f0b509
+new laputa print
+[    0.000000] Linux version 5.16.18-g2c6d769af2fa-dirty (ldj@r641) (riscv64-unknown-linux-gnu-gcc (GCC) 9.2.0, GNU ld (GNU Binutils) 2.32) #787 SMP Thu Apr 6 20:25:05 CST 2023
+[    0.000000] OF: fdt: No chosen node found, continuing without
+[    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
+[    0.000000] Forcing kernel command line to: console=hvc0 earlycon=sbi isolcpus=0,1,2,3 maxcpus=6
+[    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
+[    0.000000] printk: bootconsole [sbi0] enabled
+[    0.000000] efi: UEFI not found.
+[    0.000000] cma: Size (0x0000000233400000) of region at 0x0000000000000000 exceeds limit (0x0000000100000000)
+[    0.000000] cma: Failed to reserve 9012 MiB
+[    0.000000] Zone ranges:
+[    0.000000]   DMA32    [mem 0x0000000080200000-0x00000000ffffffff]
+[    0.000000]   Normal   [mem 0x0000000100000000-0x000000047fffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080200000-0x000000047fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080200000-0x000000047fffffff]
+[    0.000000] SBI specification v0.2 detected
+[    0.000000] SBI implementation ID=0x1 Version=0x8
+[    0.000000] SBI TIME extension detected
+[    0.000000] SBI IPI extension detected
+[    0.000000] SBI RFENCE extension detected
+[    0.000000] SBI v0.2 HSM extension detected
+[    0.000000] riscv: ISA extensions acdfim
+[    0.000000] riscv: ELF capabilities acdfim
+[    0.000000] percpu: Embedded 17 pages/cpu s32744 r8192 d28696 u69632
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 4136455
+[    0.000000] Kernel command line: console=hvc0 earlycon=sbi isolcpus=0,1,2,3 maxcpus=6
+[    0.000000] Housekeeping: must include one present CPU, using boot CPU:0
+[    0.000000] Dentry cache hash table entries: 2097152 (order: 12, 16777216 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] software IO TLB: mapped [mem 0x00000000fbfff000-0x00000000fffff000] (64MB)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]       fixmap : 0xffffffcefee00000 - 0xffffffceff000000   (2048 kB)
+[    0.000000]       pci io : 0xffffffceff000000 - 0xffffffcf00000000   (  16 MB)
+[    0.000000]      vmemmap : 0xffffffcf00000000 - 0xffffffcfffffffff   (4095 MB)
+[    0.000000]      vmalloc : 0xffffffd000000000 - 0xffffffdfffffffff   (65535 MB)
+[    0.000000]       lowmem : 0xffffffe000000000 - 0xffffffe3ffe00000   (16382 MB)
+[    0.000000]       kernel : 0xffffffff80000000 - 0xffffffffffffffff   (2047 MB)
+[    0.000000] Memory: 16435804K/16775168K available (6498K kernel code, 3554K rwdata, 2048K rodata, 3484K init, 317K bss, 339364K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu:     RCU debug extended QS entry/exit.
+[    0.000000]  Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] riscv-intc: 64 local interrupts mapped
+[    0.000000] plic: interrupt-controller@c000000: mapped 36 interrupts with 8 handlers for 24 contexts.
+[    0.000000] random: get_random_bytes called from start_kernel+0x424/0x5d4 with crng_init=0
+[    0.000000] riscv_timer_init_dt: Registering clocksource cpuid [0] hartid [3]
+[    0.000000] clocksource: riscv_clocksource: mask: 0xffffffffffffffff max_cycles: 0x1d854df40, max_idle_ns: 3526361616960 ns
+[    0.000000] sched_clock: 64 bits at 1000kHz, resolution 1000ns, wraps every 2199023255500ns
+[    0.000367] Console: colour dummy device 80x25
+[    0.000407] printk: console [hvc0] enabled
+[    0.000407] printk: console [hvc0] enabled
+[    0.000663] printk: bootconsole [sbi0] disabled
+[    0.000663] printk: bootconsole [sbi0] disabled
+[    0.000985] Calibrating delay loop (skipped), value calculated using timer frequency.. 2.00 BogoMIPS (lpj=4000)
+[    0.001269] pid_max: default: 32768 minimum: 301
+[    0.001852] Mount-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.002268] Mountpoint-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.003467] ASID allocator disabled (0 bits)
+[    0.003560] rcu: Hierarchical SRCU implementation.
+[    0.003723] EFI services will not be available.
+[    0.004225] smp: Bringing up secondary CPUs ...
+Configure pmp pmp_addr 0x20000000,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 3, base: 0x80000000, order: 0x12 flag: 0x0
+Configure pmp pmp_addr 0x0,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 4, base: 0x0, order: 0x40 flag: 0x27
+new laputa print
+Configure pmp pmp_addr 0x20000000,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 5, base: 0x80000000, order: 0x12 flag: 0x0
+Configure pmp pmp_addr 0x0,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 6, base: 0x0, order: 0x40 flag: 0x27
+new laputa print
+Configure pmp pmp_addr 0x20000000,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 7, base: 0x80000000, order: 0x12 flag: 0x0
+Configure pmp pmp_addr 0x0,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 8, base: 0x0, order: 0x40 flag: 0x27
+new laputa print
+Configure pmp pmp_addr 0x20000000,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 9, base: 0x80000000, order: 0x12 flag: 0x0
+Configure pmp pmp_addr 0x0,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 10, base: 0x0, order: 0x40 flag: 0x27
+new laputa print
+Configure pmp pmp_addr 0x20000000,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 11, base: 0x80000000, order: 0x12 flag: 0x0
+Configure pmp pmp_addr 0x0,  addr_max: 0x1ffffffff, pmp_count: 16, mem_reg_cnt: 12, base: 0x0, order: 0x40 flag: 0x27
+new laputa print
+[    0.007603] smp: Brought up 1 node, 6 CPUs
+[    0.009256] devtmpfs: initialized
+[    0.010462] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.010516] futex hash table entries: 2048 (order: 5, 131072 bytes, linear)
+[    0.011065] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.011351] thermal_sys: Registered thermal governor 'step_wise'
+[    0.011357] thermal_sys: Registered thermal governor 'user_space'
+[    0.016462] HugeTLB registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.016514] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.016827] iommu: Default domain type: Translated 
+[    0.016852] iommu: DMA domain TLB invalidation policy: strict mode 
+[    0.017001] vgaarb: loaded
+[    0.017175] SCSI subsystem initialized
+[    0.017397] usbcore: registered new interface driver usbfs
+[    0.017442] usbcore: registered new interface driver hub
+[    0.017482] usbcore: registered new device driver usb
+[    0.017981] clocksource: Switched to clocksource riscv_clocksource
+[    0.022082] NET: Registered PF_INET protocol family
+[    0.025038] IP idents hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.032696] tcp_listen_portaddr_hash hash table entries: 8192 (order: 6, 327680 bytes, linear)
+[    0.033315] TCP established hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.035275] TCP bind hash table entries: 65536 (order: 9, 2097152 bytes, linear)
+[    0.038895] TCP: Hash tables configured (established 131072 bind 65536)
+[    0.039259] UDP hash table entries: 8192 (order: 7, 786432 bytes, linear)
+[    0.040625] UDP-Lite hash table entries: 8192 (order: 7, 786432 bytes, linear)
+[    0.042134] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.042664] RPC: Registered named UNIX socket transport module.
+[    0.042694] RPC: Registered udp transport module.
+[    0.042713] RPC: Registered tcp transport module.
+[    0.042732] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.042761] PCI: CLS 0 bytes, default 64
+[    0.042868] kvm [1]: hypervisor extension available
+[    0.042950] kvm [1]: using Sv39x4 G-stage page table format
+[    0.043126] kvm [1]: VMID 0 bits available
+[    0.062208] workingset: timestamp_bits=62 max_order=22 bucket_order=0
+[    0.065920] NFS: Registering the id_resolver key type
+[    0.065959] Key type id_resolver registered
+[    0.066004] Key type id_legacy registered
+[    0.066067] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.066096] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    0.066211] 9p: Installing v9fs 9p2000 file system support
+[    0.085377] NET: Registered PF_ALG protocol family
+[    0.085469] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+[    0.085501] io scheduler mq-deadline registered
+[    0.085522] io scheduler kyber registered
+[    0.112589] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.118618] loop: module loaded
+[    0.119405] tun: Universal TUN/TAP device driver, 1.6
+[    0.119570] e1000e: Intel(R) PRO/1000 Network Driver
+[    0.119592] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    0.119675] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.119706] ehci-pci: EHCI PCI platform driver
+[    0.119745] ehci-platform: EHCI generic platform driver
+[    0.119791] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    0.119941] ohci-pci: OHCI PCI platform driver
+[    0.120091] ohci-platform: OHCI generic platform driver
+[    0.120482] usbcore: registered new interface driver uas
+[    0.120526] usbcore: registered new interface driver usb-storage
+[    0.120669] mousedev: PS/2 mouse device common for all mice
+[    0.120932] sdhci: Secure Digital Host Controller Interface driver
+[    0.120973] sdhci: Copyright(c) Pierre Ossman
+[    0.121123] sdhci-pltfm: SDHCI platform and OF driver helper
+[    0.121408] usbcore: registered new interface driver usbhid
+[    0.121467] usbhid: USB HID core driver
+[    0.121965] NET: Registered PF_INET6 protocol family
+[    0.122610] Segment Routing with IPv6
+[    0.122641] In-situ OAM (IOAM) with IPv6
+[    0.122690] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    0.123008] NET: Registered PF_PACKET protocol family
+[    0.123127] 9pnet: Installing 9P2000 support
+[    0.123182] Key type dns_resolver registered
+[    0.123908] debug_vm_pgtable: [debug_vm_pgtable         ]: Validating architecture page table helpers
+[    0.131189] Freeing unused kernel image (initmem) memory: 3484K
+[    0.146209] Run /init as init process
+[    0.157313] icenet: loading out-of-tree module taints kernel.
+[    0.159838] Registered IceNet NIC 00:12:6d:00:00:02
+[    0.163238] disk [iceblk] of loaded; 243873432 sectors, 1 tags, 16 max request length
+Mounting /dev/iceblk as root device
+[    0.167673] EXT4-fs (iceblk): mounted filesystem without journal. Opts: (null). Quota mode: disabled.
+Loaded platform drivers, booting from disk:
+[    0.187554] random: fast init done
+[    0.194236] EXT4-fs (iceblk): re-mounted. Opts: (null). Quota mode: disabled.
+Starting syslogd: OK
+Starting klogd: OK
+Running sysctl: OK
+Starting mdev: OK
+Initializing random number generator... [    0.542625] random: dd: uninitialized urandom read (512 bytes read)
+done.
+Starting network: OK
+[    0.601071] random: httpd: uninitialized urandom read (8 bytes read)
+[    0.601129] random: httpd: uninitialized urandom read (8 bytes read)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+Starting dropbear sshd: OK
+launching firesim workload run/command
+firesim workload run/command done
+
+Welcome to Buildroot
+buildroot login: root
+Password: 
+# cd / &&  mount ubuntu-vdisk.img root && chroot root bash
+[    0.867835] loop0: detected capacity change from 0 to 33554432
+[    0.887869] EXT4-fs (loop0): mounted filesystem with ordered data mode. Opts: (null). Quota mode: disabled.
+root@buildroot:/# ./mount_dev.sh && ./prepare_kill.sh && ./micro-vplic.sh
+mount: /sys: sysfs already mounted on /sys.
+mount: /dev: devtmpfs already mounted on /dev.
+kvm_init:2379 hartid 0 --> cpuid 1
+kvm_init:2379 hartid 1 --> cpuid 2
+kvm_init:2379 hartid 2 --> cpuid 3
+kvm_init:2379 hartid 3 --> cpuid 0
+kvm_init:2379 hartid 4 --> cpuid 4
+kvm_init:2379 hartid 5 --> cpuid 5
+kvm_init:2379 hartid 6 --> cpuid -22
+kvm_init:2379 hartid 7 --> cpuid -22
+kvm_start_vcpu_thread:81 >>> thread name CPU 0/KVM, cpu_index 0, nr_vcpu 0, pin to CPU 1
+ram_block_add:1993 pci_isr_sm 0x3fb4798000, *pci_isr_sm(u8) 0
+virtio_init:3266 vdev id 2, pci_isr_ptr 0x3fb4798000, pci_isr_change_ptr 0x3fb4798800
+virtio_init:3266 vdev id 1, pci_isr_ptr 0x3fb4798008, pci_isr_change_ptr 0x3fb4798808
+[    1.348208] stage2_page_fault:444 err: 1, gpa: e000000, scause: 23
+[    1.348255] kvm_riscv_stage2_map:664 hva: ffffffe000000000, gpa: e000000
+[    1.348310] stage2_page_fault:444 err: 1, gpa: c002100, scause: 21
+[    1.348337] kvm_riscv_stage2_map:664 hva: ffffffe000000000, gpa: c002100
+[    1.348390] stage2_page_fault:444 err: 1, gpa: c202000, scause: 23
+[    1.348549] kvm_riscv_stage2_map:664 hva: ffffffe000000000, gpa: c202000
+[    1.354930] stage2_page_fault:444 err: 1, gpa: c000054, scause: 23
+[    1.354967] kvm_riscv_stage2_map:664 hva: ffffffe000000000, gpa: c000054
+[    1.386797] stage2_page_fault:487 --- fault_gfn 30000
+[    1.389523] stage2_page_fault:487 --- fault_gfn 10008
+[    1.393668] stage2_page_fault:487 --- fault_gfn 10007
+[    1.393745] stage2_page_fault:487 --- fault_gfn 10006
+[    1.393798] stage2_page_fault:487 --- fault_gfn 10005
+[    1.393851] stage2_page_fault:487 --- fault_gfn 10004
+[    1.393904] stage2_page_fault:487 --- fault_gfn 10003
+[    1.393957] stage2_page_fault:487 --- fault_gfn 10002
+[    1.394034] stage2_page_fault:487 --- fault_gfn 10001
+[    1.397401] stage2_page_fault:487 --- fault_gfn 800000
+[    1.401100] stage2_page_fault:487 --- fault_gfn 800004
+[    0.000000] Linux version 5.17.0-g67b47e844bfc-dirty (ldj@r752) (riscv64-linux-gnu-gcc (Ubuntu 9.4.0-1ubuntu1~20.04) 9.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #331 SMP Tue Apr 4 20:45:08 CST 2023
+[    0.000000] Machine model: riscv-virtio,qemu
+[    0.000000] efi: UEFI not found.
+[    0.000000] Zone ranges:
+[    0.000000]   DMA32    [mem 0x0000000080000000-0x000000009fffffff]
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080000000-0x000000009fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080000000-0x000000009fffffff]
+[    0.000000] SBI specification v0.1 detected
+[    0.000000] riscv: ISA extensions acdfim
+[    0.000000] riscv: ELF capabilities acdfim
+[    0.000000] percpu: Embedded 17 pages/cpu s30824 r8192 d30616 u69632
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 129280
+[    0.000000] Kernel command line: root=/dev/vda rw console=ttyS0 earlycon=sbi
+[    0.000000] Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]       fixmap : 0xffffffc6fee00000 - 0xffffffc6ff000000   (2048 kB)
+[    0.000000]       pci io : 0xffffffc6ff000000 - 0xffffffc700000000   (  16 MB)
+[    0.000000]      vmemmap : 0xffffffc700000000 - 0xffffffc800000000   (4096 MB)
+[    0.000000]      vmalloc : 0xffffffc800000000 - 0xffffffd800000000   (65536 MB)
+[    0.000000]       lowmem : 0xffffffd800000000 - 0xffffffd820000000   ( 512 MB)
+[    0.000000]       kernel : 0xffffffff80000000 - 0xffffffffffffffff   (2047 MB)
+[    0.000000] Memory: 498448K/524288K available (6107K kernel code, 4862K rwdata, 2048K rodata, 2154K init, 326K bss, 25840K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=1.
+[    0.000000] rcu:     RCU debug extended QS entry/exit.
+[    0.000000]  Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] riscv-intc: 64 local interrupts mapped
+[    0.000000] irq_domain_associate:578 virq 9, hwirq 9
+[    0.000000] irq_domain_set_hwirq_and_chip:1332 virq 9, hwirq 9
+[    0.000000] plic: plic_init:379 claim_mmio ffffffc800202004 *vplic_sm dead
+[    0.000000] plic: plic@c000000: mapped 255 interrupts with 1 handlers for 3 contexts.
+[    0.000000] random: get_random_bytes called from start_kernel+0x4c0/0x6ec with crng_init=0
+[    0.000000] irq_domain_associate:578 virq 5, hwirq 5
+[    0.000000] irq_domain_set_hwirq_and_chip:1332 virq 5, hwirq 5
+[    0.000000] riscv_timer_init_dt: Registering clocksource cpuid [0] hartid [0]
+[    0.000000] clocksource: riscv_clocksource: mask: 0xffffffffffffffff max_cycles: 0x1d854df40, max_idle_ns: 3526361616960 ns
+[    0.000001] sched_clock: 64 bits at 1000kHz, resolution 1000ns, wraps every 2199023255500ns
+[    0.000140] Console: colour dummy device 80x25
+[    0.000218] Calibrating delay loop (skipped), value calculated using timer frequency.. 2.00 BogoMIPS (lpj=4000)
+[    0.000241] pid_max: default: 32768 minimum: 301
+[    0.000357] Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.000395] Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.002288] cblist_init_generic: Setting adjustable number of callback queues.
+[    0.002308] cblist_init_generic: Setting shift to 0 and lim to 1.
+[    0.002395] ASID allocator disabled (0 bits)
+[    0.002492] rcu: Hierarchical SRCU implementation.
+[    0.002706] EFI services will not be available.
+[    0.003003] smp: Bringing up secondary CPUs ...
+[    0.003013] smp: Brought up 1 node, 1 CPU
+[    0.003462] devtmpfs: initialized
+[    0.004442] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.004466] futex hash table entries: 256 (order: 2, 16384 bytes, linear)
+[    0.004968] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.005863] irq_domain_set_hwirq_and_chip:1332 virq 1, hwirq 21
+[    0.006025] irq_domain_set_hwirq_and_chip:1332 virq 2, hwirq 20
+[    0.006275] irq_domain_set_hwirq_and_chip:1332 virq 3, hwirq 18
+[    0.006361] irq_domain_set_hwirq_and_chip:1332 virq 4, hwirq 17
+[    0.006432] irq_domain_set_hwirq_and_chip:1332 virq 6, hwirq 16
+[    0.006518] irq_domain_set_hwirq_and_chip:1332 virq 7, hwirq 15
+[    0.006625] irq_domain_set_hwirq_and_chip:1332 virq 8, hwirq 14
+[    0.006711] irq_domain_set_hwirq_and_chip:1332 virq 10, hwirq 13
+[    0.006780] irq_domain_set_hwirq_and_chip:1332 virq 11, hwirq 12
+[    0.006863] irq_domain_set_hwirq_and_chip:1332 virq 12, hwirq 11
+[    0.011174] vgaarb: loaded
+[    0.011449] SCSI subsystem initialized
+[    0.011778] usbcore: registered new interface driver usbfs
+[    0.011817] usbcore: registered new interface driver hub
+[    0.011839] usbcore: registered new device driver usb
+[    0.012550] clocksource: Switched to clocksource riscv_clocksource
+[    0.016827] NET: Registered PF_INET protocol family
+[    0.017100] IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.017632] tcp_listen_portaddr_hash hash table entries: 256 (order: 1, 10240 bytes, linear)
+[    0.017686] TCP established hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.017799] TCP bind hash table entries: 4096 (order: 5, 131072 bytes, linear)
+[    0.018179] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.018439] UDP hash table entries: 256 (order: 2, 24576 bytes, linear)
+[    0.018532] UDP-Lite hash table entries: 256 (order: 2, 24576 bytes, linear)
+[    0.018739] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.019461] RPC: Registered named UNIX socket transport module.
+[    0.019475] RPC: Registered udp transport module.
+[    0.019482] RPC: Registered tcp transport module.
+[    0.019488] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.019499] PCI: CLS 0 bytes, default 64
+[    0.019562] kvm [1]: hypervisor extension not available
+[    0.020147] Unpacking initramfs...
+[    0.024627] workingset: timestamp_bits=62 max_order=17 bucket_order=0
+[    0.029026] NFS: Registering the id_resolver key type
+[    0.029055] Key type id_resolver registered
+[    0.029064] Key type id_legacy registered
+[    0.029128] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.029142] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    0.032661] 9p: Installing v9fs 9p2000 file system support
+[    0.032898] NET: Registered PF_ALG protocol family
+[    0.032962] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+[    0.032980] io scheduler mq-deadline registered
+[    0.032990] io scheduler kyber registered
+[    0.035559] pci-host-generic 30000000.pci: host bridge /soc/pci@30000000 ranges:
+[    0.035591] pci-host-generic 30000000.pci:       IO 0x0003000000..0x000300ffff -> 0x0000000000
+[    0.035618] pci-host-generic 30000000.pci:      MEM 0x0040000000..0x007fffffff -> 0x0040000000
+[    0.035636] pci-host-generic 30000000.pci:      MEM 0x0800000000..0x0bffffffff -> 0x0800000000
+[    0.035675] pci-host-generic 30000000.pci: Memory resource size exceeds max for 32 bits
+[    0.037603] pci-host-generic 30000000.pci: ECAM at [mem 0x30000000-0x3fffffff] for [bus 00-ff]
+[    0.037689] pci-host-generic 30000000.pci: PCI host bridge to bus 0000:00
+[    0.037700] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.037710] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.037720] pci_bus 0000:00: root bus resource [mem 0x40000000-0x7fffffff]
+[    0.037731] pci_bus 0000:00: root bus resource [mem 0x800000000-0xbffffffff]
+[    0.037866] pci 0000:00:00.0: [1b36:0008] type 00 class 0x060000
+[    0.038338] pci 0000:00:01.0: [1af4:1001] type 00 class 0x010000
+[    0.038420] pci 0000:00:01.0: reg 0x10: [io  0x0000-0x007f]
+[    0.038459] pci 0000:00:01.0: reg 0x14: [mem 0x00000000-0x00000fff]
+[    0.038571] pci 0000:00:01.0: reg 0x20: [mem 0x00000000-0x00003fff 64bit pref]
+[    0.039059] pci 0000:00:02.0: [1af4:1000] type 00 class 0x020000
+[    0.039140] pci 0000:00:02.0: reg 0x10: [io  0x0000-0x001f]
+[    0.039178] pci 0000:00:02.0: reg 0x14: [mem 0x00000000-0x00000fff]
+[    0.039288] pci 0000:00:02.0: reg 0x20: [mem 0x00000000-0x00003fff 64bit pref]
+[    0.039329] pci 0000:00:02.0: reg 0x30: [mem 0x00000000-0x0003ffff pref]
+[    0.040007] pci 0000:00:02.0: BAR 6: assigned [mem 0x40000000-0x4003ffff pref]
+[    0.040022] pci 0000:00:01.0: BAR 4: assigned [mem 0x800000000-0x800003fff 64bit pref]
+[    0.040078] pci 0000:00:02.0: BAR 4: assigned [mem 0x800004000-0x800007fff 64bit pref]
+[    0.040134] pci 0000:00:01.0: BAR 1: assigned [mem 0x40040000-0x40040fff]
+[    0.040158] pci 0000:00:02.0: BAR 1: assigned [mem 0x40041000-0x40041fff]
+[    0.040181] pci 0000:00:01.0: BAR 0: assigned [io  0x0000-0x007f]
+[    0.040203] pci 0000:00:02.0: BAR 0: assigned [io  0x0080-0x009f]
+[    0.045173] irq_domain_set_hwirq_and_chip:1332 virq 13, hwirq 33
+[    0.045228] virtio-pci 0000:00:01.0: enabling device (0000 -> 0003)
+[    0.048333] register_virtio_device:422 index 0
+[    0.048875] irq_domain_set_hwirq_and_chip:1332 virq 14, hwirq 34
+[    0.048919] virtio-pci 0000:00:02.0: enabling device (0000 -> 0003)
+[    0.052037] register_virtio_device:422 index 1
+[    0.061998] Freeing initrd memory: 1412K
+[    0.083474] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.084385] printk: console [ttyS0] disabled
+[    0.084451] 10000000.uart: ttyS0 at MMIO 0x10000000 (irq = 2, base_baud = 230400) is a 16550A
+[    0.233466] printk: console [ttyS0] enabled
+[    0.239212] loop: module loaded
+[    1.589061] stage2_page_fault:487 --- fault_gfn 800002
+[    0.240763] virtio_blk virtio0: [vda] 22020096 512-byte logical blocks (11.3 GB/10.5 GiB)
+[    1.594238] stage2_page_fault:487 --- fault_gfn 800006
+[    0.246506] e1000e: Intel(R) PRO/1000 Network Driver
+[    0.247369] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    0.248433] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.249587] ehci-pci: EHCI PCI platform driver
+[    0.250397] ehci-platform: EHCI generic platform driver
+[    0.251318] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    0.252375] ohci-pci: OHCI PCI platform driver
+[    0.253174] ohci-platform: OHCI generic platform driver
+[    0.254378] usbcore: registered new interface driver uas
+[    0.255323] usbcore: registered new interface driver usb-storage
+[    0.256467] mousedev: PS/2 mouse device common for all mice
+[    1.606658] stage2_page_fault:487 --- fault_gfn 101
+[    0.257759] goldfish_rtc 101000.rtc: registered as rtc0
+[    0.258666] goldfish_rtc 101000.rtc: setting system clock to 1970-01-01T00:00:01 UTC (1)
+[    0.260209] syscon-poweroff soc:poweroff: pm_power_off already claimed for sbi_shutdown
+[    0.261620] syscon-poweroff: probe of soc:poweroff failed with error -16
+[    0.262853] sdhci: Secure Digital Host Controller Interface driver
+[    0.263902] sdhci: Copyright(c) Pierre Ossman
+[    0.264679] sdhci-pltfm: SDHCI platform and OF driver helper
+[    0.265795] usbcore: registered new interface driver usbhid
+[    0.266742] usbhid: USB HID core driver
+[    0.267895] NET: Registered PF_INET6 protocol family
+[    0.269717] Segment Routing with IPv6
+[    0.270372] In-situ OAM (IOAM) with IPv6
+[    0.271071] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    0.272474] NET: Registered PF_PACKET protocol family
+[    0.273520] 9pnet: Installing 9P2000 support
+[    0.274301] Key type dns_resolver registered
+[    0.275266] debug_vm_pgtable: [debug_vm_pgtable         ]: Validating architecture page table helpers
+[    0.282099] Freeing unused kernel image (initmem) memory: 2152K
+[    0.288562] Run /init as init process
+Mounting Procfs...
+Entering Shell...
+bash: can't access tty; job control turned off
+/ # [6necho 'ready to mount' && mount /dev/vda /root && chroot /root bash
+ready to mount
+[    0.344247] EXT4-fs (vda): mounted filesystem with ordered data mode. Quota mode: disabled.
+bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+bash: no job control in this shell
+[    0.421829] random: fast init done
+root@(none):/# ;5Rstty -echo -ignpar -brkint -istrip cs8 -ixon -crtscts
+bash: syntax error near unexpected token `;'
+root@(none):/# insmod vplic.ko
+[    0.471279] vplic: loading out-of-tree module taints kernel.
+[    0.472637] VPLIC TEST START!
+[    1.822240] --- SBI_EXT_0_1_CLEAR_IPI 34 0 0 0 57005
+[    1.822430]   cur cycle 22928 cnt 100 min 217 max 1430
+[    1.822470]   cur cycle 44630 cnt 200 min 217 max 219
+[    1.822507]   cur cycle 66328 cnt 300 min 215 max 219
+[    1.822543]   cur cycle 88028 cnt 400 min 217 max 217
+[    1.822579]   cur cycle 109729 cnt 500 min 217 max 218
+[    1.822617]   cur cycle 131429 cnt 600 min 215 max 219
+[    1.822728]   cur cycle 153131 cnt 700 min 217 max 219
+[    1.822891]   cur cycle 174828 cnt 800 min 215 max 218
+[    1.823054]   cur cycle 196528 cnt 900 min 215 max 219
+[    1.823217]   cur cycle 218228 cnt 1000 min 215 max 219
+[    1.823383]   cur cycle 239928 cnt 1100 min 215 max 219
+[    1.823548]   cur cycle 261628 cnt 1200 min 215 max 219
+[    1.823714]   cur cycle 283329 cnt 1300 min 216 max 219
+[    1.823880]   cur cycle 305032 cnt 1400 min 217 max 219
+[    1.824045]   cur cycle 326732 cnt 1500 min 215 max 219
+[    1.824211]   cur cycle 348431 cnt 1600 min 215 max 219
+[    1.824377]   cur cycle 370130 cnt 1700 min 215 max 218
+[    1.824544]   cur cycle 391828 cnt 1800 min 215 max 217
+[    1.824708]   cur cycle 413529 cnt 1900 min 216 max 219
+[    1.824874]   cur cycle 435230 cnt 2000 min 216 max 219
+[    1.825040]   cur cycle 456930 cnt 2100 min 217 max 217
+[    1.825205]   cur cycle 478630 cnt 2200 min 215 max 219
+[    1.825371]   cur cycle 500331 cnt 2300 min 216 max 219
+[    1.825537]   cur cycle 522031 cnt 2400 min 216 max 218
+[    1.825702]   cur cycle 543959 cnt 2500 min 217 max 373
+[    1.825868]   cur cycle 565709 cnt 2600 min 217 max 218
+[    1.826721]   cur cycle 587858 cnt 2700 min 217 max 657
+[    1.826762]   cur cycle 609558 cnt 2800 min 215 max 219
+[    1.826800]   cur cycle 631256 cnt 2900 min 215 max 217
+[    1.826839]   cur cycle 652954 cnt 3000 min 215 max 217
+[    1.826877]   cur cycle 674652 cnt 3100 min 215 max 217
+[    1.826915]   cur cycle 696354 cnt 3200 min 217 max 219
+[    1.827044]   cur cycle 718052 cnt 3300 min 215 max 217
+[    1.827209]   cur cycle 739750 cnt 3400 min 215 max 217
+[    1.827375]   cur cycle 761448 cnt 3500 min 215 max 217
+[    1.827541]   cur cycle 783146 cnt 3600 min 215 max 217
+[    1.827706]   cur cycle 804845 cnt 3700 min 215 max 219
+[    1.827872]   cur cycle 826545 cnt 3800 min 217 max 217
+[    1.828038]   cur cycle 848246 cnt 3900 min 216 max 219
+[    1.828203]   cur cycle 869944 cnt 4000 min 216 max 217
+[    1.828369]   cur cycle 891642 cnt 4100 min 215 max 217
+[    1.828535]   cur cycle 913340 cnt 4200 min 215 max 217
+[    1.828700]   cur cycle 935038 cnt 4300 min 215 max 217
+[    1.828866]   cur cycle 956738 cnt 4400 min 217 max 217
+[    1.829032]   cur cycle 978438 cnt 4500 min 215 max 219
+[    1.829197]   cur cycle 1000139 cnt 4600 min 216 max 219
+[    1.829366]   cur cycle 1021837 cnt 4700 min 215 max 219
+[    1.829534]   cur cycle 1043537 cnt 4800 min 215 max 219
+[    1.829703]   cur cycle 1065240 cnt 4900 min 217 max 219
+[    1.829871]   cur cycle 1086942 cnt 5000 min 217 max 219
+[    1.830552]   cur cycle 1109036 cnt 5100 min 217 max 601
+[    1.830592]   cur cycle 1130735 cnt 5200 min 214 max 219
+[    1.830629]   cur cycle 1152435 cnt 5300 min 215 max 219
+[    1.830667]   cur cycle 1174133 cnt 5400 min 215 max 217
+[    1.830713]   cur cycle 1195828 cnt 5500 min 215 max 217
+[    1.830881]   cur cycle 1217528 cnt 5600 min 215 max 219
+[    1.831050]   cur cycle 1239228 cnt 5700 min 215 max 219
+[    1.831218]   cur cycle 1260928 cnt 5800 min 215 max 219
+[    1.831386]   cur cycle 1282629 cnt 5900 min 217 max 218
+[    1.831555]   cur cycle 1304329 cnt 6000 min 215 max 219
+[    1.831723]   cur cycle 1326028 cnt 6100 min 216 max 217
+[    1.831892]   cur cycle 1347728 cnt 6200 min 215 max 219
+[    1.832060]   cur cycle 1369428 cnt 6300 min 215 max 219
+[    1.832229]   cur cycle 1391124 cnt 6400 min 215 max 218
+[    1.832397]   cur cycle 1412823 cnt 6500 min 215 max 218
+[    1.832565]   cur cycle 1434525 cnt 6600 min 217 max 219
+[    1.832734]   cur cycle 1456225 cnt 6700 min 216 max 219
+[    1.832902]   cur cycle 1477928 cnt 6800 min 217 max 219
+[    1.833070]   cur cycle 1499628 cnt 6900 min 216 max 218
+[    1.833239]   cur cycle 1521328 cnt 7000 min 216 max 219
+[    1.833407]   cur cycle 1543028 cnt 7100 min 215 max 219
+[    1.833575]   cur cycle 1564728 cnt 7200 min 215 max 219
+[    1.833744]   cur cycle 1586428 cnt 7300 min 216 max 218
+[    1.833912]   cur cycle 1608129 cnt 7400 min 216 max 219
+[    1.834551]   cur cycle 1630202 cnt 7500 min 215 max 584
+[    1.834590]   cur cycle 1651902 cnt 7600 min 216 max 219
+[    1.834628]   cur cycle 1673602 cnt 7700 min 215 max 219
+[    1.834665]   cur cycle 1695303 cnt 7800 min 217 max 218
+[    1.834754]   cur cycle 1717001 cnt 7900 min 215 max 217
+[    1.834923]   cur cycle 1738699 cnt 8000 min 215 max 217
+[    1.835091]   cur cycle 1760399 cnt 8100 min 216 max 218
+[    1.835259]   cur cycle 1782098 cnt 8200 min 215 max 218
+[    1.835428]   cur cycle 1803798 cnt 8300 min 215 max 219
+[    1.835596]   cur cycle 1825496 cnt 8400 min 216 max 217
+[    1.835765]   cur cycle 1847194 cnt 8500 min 215 max 219
+[    1.835933]   cur cycle 1868892 cnt 8600 min 215 max 219
+[    1.836101]   cur cycle 1890591 cnt 8700 min 215 max 219
+[    1.836270]   cur cycle 1912289 cnt 8800 min 215 max 217
+[    1.836438]   cur cycle 1933987 cnt 8900 min 215 max 217
+[    1.836606]   cur cycle 1955687 cnt 9000 min 217 max 217
+[    1.836775]   cur cycle 1977388 cnt 9100 min 216 max 219
+[    1.836943]   cur cycle 1999084 cnt 9200 min 215 max 218
+[    1.837112]   cur cycle 2020782 cnt 9300 min 216 max 217
+[    1.837280]   cur cycle 2042482 cnt 9400 min 216 max 219
+[    1.837449]   cur cycle 2064182 cnt 9500 min 216 max 219
+[    1.837617]   cur cycle 2085884 cnt 9600 min 217 max 219
+[    1.837785]   cur cycle 2107582 cnt 9700 min 215 max 218
+[    1.837953]   cur cycle 2129283 cnt 9800 min 217 max 218
+[    1.838598]   cur cycle 2151175 cnt 9900 min 215 max 351
+[    1.838638]   cur cycle 2172926 cnt 10000 min 215 max 222
+[    1.838661] vplic_thread:156 total cycle 2172926 cnt 10000 avg 217 BREAKDOWN END

@@ -1,0 +1,5 @@
+Benchmark		Improvement
+512MB		0.3553
+1024MB		0.0134
+1536MB		0.0100
+2048MB		0.0151

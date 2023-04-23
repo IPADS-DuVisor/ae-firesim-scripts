@@ -1,0 +1,51 @@
+#!/bin/bash
+
+IPADDR=192.168.254.7
+WIDTH=16
+GATEWAY=192.168.10.1
+
+echo "Mounting Procfs..."
+
+mount -t proc proc /proc
+mount -t devtmpfs devtmpfs /dev
+mount -t sysfs sysfs /sys
+
+echo "Initializing Network..."
+
+#ip link set lo up
+#ip link set eth0 up
+#ip addr add $IPADDR/$WIDTH dev eth0
+#ip route add default via $GATEWAY dev eth0
+
+echo "New init v1!"
+
+ls
+
+mount /dev/vda root
+echo "mount vda finish"
+chroot root /bin/bash << "EOT"
+ls
+
+./mount_dev.sh
+echo "mount finish"
+./guest_net.sh
+echo "guest net finish"
+
+#cat ./untar.sh
+#ls -l
+#./untar.sh
+
+#cat ./untar_large.sh
+#ls -l
+#./untar_large.sh
+./memcached_server.sh && ls
+#./iperf3 -s
+echo "memcached server start!!!!"
+
+echo "sleep 100..."
+sleep 100
+echo "sleep 100..."
+sleep 100
+echo "sleep finish"
+#/bin/bash
+bash

@@ -1,0 +1,182 @@
+#!/usr/bin/expect
+
+set timeout -1
+
+set env(TERM) xterm-256color
+set env(SHELL) /bin/bash
+set env(SHLVL) 2
+set env(SUDO_COMMAND) /bin/bash
+set HOST "172.16.0.2"
+set FPGA "192.168.3.100"
+set kvm_or_laputa [lindex $argv 0]
+set TIMES 3
+set TASKSET "taskset -a 0xf"
+
+if {$kvm_or_laputa == "laputa"} {
+    set HOST_NET "host_net_ulh.sh"
+} else {
+    set HOST_NET "host_net.sh"
+}
+
+spawn bash -c "ssh $FPGA"
+
+expect {
+	"centos@ip" {
+		send "screen -r fsim0\n"
+	}
+}
+
+expect {
+    "buildroot login" {
+        puts "start login"
+            send "root\n"
+            exp_continue
+    }
+
+    "Password:" {
+        send "firesim\n"
+            expect {
+                "#" {
+                    send "cd / &&  mount ubuntu-vdisk.img root && chroot root bash\n"
+                        expect  "root@buildroot:"
+
+                        send "./mount_dev.sh && ./prepare_kill.sh && ./${HOST_NET}\n"
+
+                        expect "#"
+                        send "mount /blk-dev.img root && chroot root bash\n"
+
+                        expect "#"
+                        send "\n"
+
+                        expect "#"
+                        send "\n"
+
+                        expect "#"
+                        send "\n"
+
+                        expect "#"
+                        send "\n"
+                        send "\n"
+
+                        expect "#"
+                        send "./mount_dev.sh \n"
+
+                        expect "#"
+                        send "$TASKSET ./memcached_server.sh && echo a  c\n"
+
+                        expect "a c" 
+                        send "echo 'Hello Memcached' | tr a-z A-Z\n"
+
+                        expect "HELLO MEMCACHED"
+                        send "\x01"; send "d"
+                }	
+            }
+    }
+}
+
+
+expect {
+	"centos@ip" {
+		send "screen -r fsim1\n"
+	}
+}
+
+expect {
+    "buildroot login" {
+        send "root\n"
+            exp_continue
+    }
+
+    "Password:" {
+        send "firesim\n"
+            expect {
+                "#" {
+                    send "cd / &&  mount ubuntu-vdisk.img root && chroot root \n"
+                        expect "root@buildroot:"
+
+                        send "mount blk-dev.img root && chroot root \n"
+                        expect "root@buildroot:"
+
+                        send "HOST=$HOST TIMES=$TIMES ./memcached_client.sh && echo 'bye memcached' | tr a-z A-Z\n"
+
+                        expect "BYE MEMCACHED"
+                        send "HOST=$HOST TIMES=$TIMES ./memcached_client.sh && echo 'bye memcached1' | tr a-z A-Z\n"
+
+                        expect "BYE MEMCACHED1"
+                        send "HOST=$HOST TIMES=$TIMES ./memcached_client.sh && echo 'bye memcached2' | tr a-z A-Z\n"
+
+                        expect "BYE MEMCACHED2"
+                        send "\x01"; send "d"
+                }	
+            }
+    }
+}
+
+
+expect {
+	"centos@ip" {
+		send "screen -r fsim0\n"
+	}
+}
+
+expect {
+    "#" {
+    	send "./memcached_kill.sh && echo a  d\n" 
+        expect "a d"
+    	
+        send "$TASKSET ./nginx && echo a  0\n" 
+        expect "a 0"
+	send "\x01"; send "d"
+    }
+}
+        
+expect {
+	"centos@ip" {
+		send "screen -r fsim1\n"
+	}
+}
+
+expect {
+    "root@buildroot:" {
+        send "HOST=http://$HOST/ TIMES=$TIMES ./nginx_client.sh && echo 'bye nginx' | tr a-z A-Z\n"
+        expect "BYE NGINX"
+	send "\x01"; send "d"
+    }	
+}
+
+expect {
+	"centos@ip" {
+		send "screen -r fsim0\n"
+	}
+}
+
+expect {
+    "#" {
+    	send "killall nginx && echo a  1\n" 
+        expect "a 1"
+
+        send "TIMES=$TIMES $TASKSET ./sysbench_io_run.sh && echo a  i\n"
+        expect "a i"
+        
+        send "TIMES=$TIMES $TASKSET ./hackbench.sh && echo a  g\n"
+        expect "a g"
+
+        send "TIMES=$TIMES $TASKSET ./sysbench_cpu_run.sh && echo a  p\n"
+        expect "a p"
+        
+        send "TIMES=$TIMES $TASKSET ./untar_large.sh && echo a  h\n"
+        expect "a h"
+        
+        send "clear \n"
+        expect "#"
+        
+        send "echo 'ALL TEST DONE'\n"
+        expect "#"
+        
+        send "\x01"; send "d"
+    }
+
+}
+
+
+puts "Test OK"
