@@ -45,4 +45,4 @@ python extract_app_data.py ulh 4 fig10 2048
 python move_fig10_data.py
  
 ## Draw
-# ./draw.sh
+./draw.sh
