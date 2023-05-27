@@ -1,5 +1,5 @@
 #!/bin/bash
 
-~/firesim/update/sync-hw.sh ~/firesim/nightly-scripts/config_runtime-vipi.ini
-cp ~/firesim/images/br-base-bin-kvm-micro-hypercall ~/firesim/br-base-bin-kvm
-cp ~/firesim/images/qemu-kvm-vipi ~/firesim/mnt-firesim/qemu-system-riscv64
+$AE_ROOT/update/sync-hw.sh $AE_ROOT/nightly-scripts/config_runtime-vipi.ini
+cp $AE_ROOT/images/br-base-bin-kvm-micro-hypercall $AE_ROOT/br-base-bin-kvm
+cp $AE_ROOT/images/qemu-kvm-vipi $AE_ROOT/mnt-firesim/qemu-system-riscv64

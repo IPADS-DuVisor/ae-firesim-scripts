@@ -64,10 +64,10 @@ function test_kvm() {
     if [[ "$2" == "fig9" ]]; then
         ./update/2.sh
         if [[ "$3" == "dv" ]]; then
-            cp ~/firesim/images/br-base-bin-kvm-dv-fig9 ~/firesim/br-base-bin-kvm
+            cp $AE_ROOT/images/br-base-bin-kvm-dv-fig9 $AE_ROOT/br-base-bin-kvm
         else
-            cp ~/firesim/images/br-base-bin-kvm-fig9 ~/firesim/br-base-bin-kvm
-            cp ~/firesim/images/qemu-kvm-vanilla ~/firesim/mnt-firesim/qemu-system-riscv64
+            cp $AE_ROOT/images/br-base-bin-kvm-fig9 $AE_ROOT/br-base-bin-kvm
+            cp $AE_ROOT/images/qemu-kvm-vanilla $AE_ROOT/mnt-firesim/qemu-system-riscv64
         fi
     else
         ./update/0.sh # change hardware to vipi
@@ -105,11 +105,11 @@ function test_ulh() {
         cp ./assets/ulh-app-fig10b-$4.initrd.cpio ./mnt-firesim/laputa/rootfs-net.img
         if [[ "$3" == "pmp" ]]; then
             echo "Correct PMP Path"
-            ~/firesim/update/sync-hw.sh ~/firesim/nightly-scripts/config_runtime-vipi.ini
+            $AE_ROOT/update/sync-hw.sh $AE_ROOT/nightly-scripts/config_runtime-vipi.ini
             cp images/br-base-bin-laputa  br-base-bin-laputa
         else
             echo "Correct NOPMP Path"
-            ~/firesim/update/sync-hw.sh ~/firesim/nightly-scripts/config_runtime-nopmp.ini
+            $AE_ROOT/update/sync-hw.sh $AE_ROOT/nightly-scripts/config_runtime-nopmp.ini
             cp images/br-base-bin-laputa  br-base-bin-laputa
             # cp images/br-base-bin-laputa-nopmp  br-base-bin-laputa
         fi
@@ -129,7 +129,7 @@ function test_native() {
     echo "${YELLOW} native-$1 ${ENDCOLOR}"
 
     # set hardware to vanilla
-    ~/firesim/update/sync-hw.sh ~/firesim/nightly-scripts/config_runtime-DV.ini
+    $AE_ROOT/update/sync-hw.sh $AE_ROOT/nightly-scripts/config_runtime-DV.ini
     cp ./assets/br-base-bin-native-$1 \
         ./br-base-bin-kvm
     cp ./nightly-scripts/1_core.expect.native \
@@ -181,7 +181,7 @@ function main() {
         OLD_ARCH=$ARCH
         OLD_VCPU=$VCPU
 
-        cp ~/firesim/images/qemu-kvm-vipi ~/firesim/mnt-firesim/qemu-system-riscv64
+        cp $AE_ROOT/images/qemu-kvm-vipi $AE_ROOT/mnt-firesim/qemu-system-riscv64
     
         # reuse ulh for hypercall / s2pf / mmio
         if [[ "$ARCH" == "ub" && ( "$VCPU" == "hypercall" || "$VCPU" == "s2pf" || "$VCPU" == "mmio" ) ]]; then

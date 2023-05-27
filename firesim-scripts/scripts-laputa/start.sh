@@ -30,7 +30,7 @@ if [[ -z $ARG1 || "$ARG1" != "kvm" && "$ARG1" != "laputa" ]]; then
     exit -1
 fi
 
-cd ~/firesim
+cd $AE_ROOT
 source sourceme-f1-manager.sh
 cd -
 ./scripts-laputa/start_instance.sh
@@ -38,13 +38,13 @@ cd -
 echo "TRACE start_instance successfully!"
 
 
-cd ~/firesim
+cd $AE_ROOT
 echo "TARCE scp rootfs"
-scp -r ~/firesim/firesim-scripts/scripts-rootfs $FPGA_IP:~/
+scp -r $AE_ROOT/firesim-scripts/scripts-rootfs $FPGA_IP:~/
 echo "TARCE tar mnt-firesim"
 tar -cvzf mnt-firesim.tar.gz mnt-firesim
 echo "TARCE scp mnt-firesim"
-scp ~/firesim/mnt-firesim.tar.gz $FPGA_IP:~/
+scp $AE_ROOT/mnt-firesim.tar.gz $FPGA_IP:~/
 echo "TARCE ssh-tar"
 ssh $FPGA_IP "sudo tar -vxzf mnt-firesim.tar.gz"
 cd -
@@ -52,13 +52,13 @@ echo "TRACE copy assets successfully!"
 
 if [[ $ARG1 == "laputa" ]]; then
 echo "TRACE copy laputa br-base-bin successfully!"
-scp ~/firesim/br-base-bin-laputa $FPGA_IP:~/sim_slot_0/linux-uniform0-br-base-bin-ulh-correct
+scp $AE_ROOT/br-base-bin-laputa $FPGA_IP:~/sim_slot_0/linux-uniform0-br-base-bin-ulh-correct
 else
 echo "TRACE copy kvm br-base-bin successfully!"
-scp ~/firesim/br-base-bin-kvm $FPGA_IP:~/sim_slot_0/linux-uniform0-br-base-bin-kvm-correct
+scp $AE_ROOT/br-base-bin-kvm $FPGA_IP:~/sim_slot_0/linux-uniform0-br-base-bin-kvm-correct
 fi
 
-scp ~/firesim/br-base-bin-$ARG1 $FPGA_IP:~/sim_slot_0/linux-uniform0-br-base-bin
+scp $AE_ROOT/br-base-bin-$ARG1 $FPGA_IP:~/sim_slot_0/linux-uniform0-br-base-bin
 echo "copy br-base-bin-$ARG1 to FPGA node successfully"
 
 # echo "./switch_to_$ARG1.sh"
@@ -81,9 +81,9 @@ ssh $FPGA_IP "./scripts-rootfs/copy_myself.sh"
 ./scripts-laputa/start_workload.sh
 echo "TARCE: start fpga simulation successfully!!"
 
-mkdir -p ~/firesim/log-laputa
-mkdir -p ~/firesim/firesim-scripts/log-laputa
-LOG_NAME="~/firesim/log-laputa/`date +%Y-%m-%d-%T`"
+mkdir -p $AE_ROOT/log-laputa
+mkdir -p $AE_ROOT/firesim-scripts/log-laputa
+LOG_NAME="$AE_ROOT/log-laputa/`date +%Y-%m-%d-%T`"
 LOG_NAME1="./log-laputa/`date +%Y-%m-%d-%T`"
 echo $LOG_NAME
 echo $LOG_NAME1

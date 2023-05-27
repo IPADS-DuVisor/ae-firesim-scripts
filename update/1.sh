@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cp ~/firesim/images/br-base-bin-kvm-vipi ~/firesim/br-base-bin-kvm
-cp ~/firesim/images/Image-kvm-vipi ~/firesim/mnt-firesim/Image
-cp ~/firesim/images/qemu-kvm-vipi ~/firesim/mnt-firesim/qemu-system-riscv64
+cp $AE_ROOT/images/br-base-bin-kvm-vipi $AE_ROOT/br-base-bin-kvm
+cp $AE_ROOT/images/Image-kvm-vipi $AE_ROOT/mnt-firesim/Image
+cp $AE_ROOT/images/qemu-kvm-vipi $AE_ROOT/mnt-firesim/qemu-system-riscv64

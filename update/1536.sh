@@ -1,2 +1,2 @@
-cp ~/firesim/nightly-scripts/memcached-4-1536.sh \
-    ~/firesim/firesim-scripts/scripts-rootfs/memcached_server.sh
+cp $AE_ROOT/nightly-scripts/memcached-4-1536.sh \
+    $AE_ROOT/firesim-scripts/scripts-rootfs/memcached_server.sh

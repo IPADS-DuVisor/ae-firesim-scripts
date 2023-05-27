@@ -16,15 +16,15 @@ function ctrl_c {
 
 echo "TYPE == $TYPE"
 
-cd ~/firesim
+cd $AE_ROOT
 source sourceme-f1-manager.sh
 cd -
 ./scripts-laputa/start_instance.sh
 
-cd ~/firesim
-scp -r ~/firesim/firesim-scripts/scripts-rootfs $FPGA_IP:~/
+cd $AE_ROOT
+scp -r $AE_ROOT/firesim-scripts/scripts-rootfs $FPGA_IP:~/
 tar -cvzf mnt-firesim.tar.gz mnt-firesim
-scp ~/firesim/mnt-firesim.tar.gz $FPGA_IP:~/
+scp $AE_ROOT/mnt-firesim.tar.gz $FPGA_IP:~/
 ssh $FPGA_IP "sudo tar -vxzf mnt-firesim.tar.gz"
 cd -
 echo "assets copy to FPGA Node successfully"
@@ -32,15 +32,15 @@ echo "assets copy to FPGA Node successfully"
 ssh $FPGA_IP "./scripts-rootfs/copy_myself.sh"
 echo "FPGA copy_myself successfully"
 
-scp ~/firesim/br-base-bin-kvm $FPGA_IP:~/sim_slot_0/linux-uniform0-br-base-bin
+scp $AE_ROOT/br-base-bin-kvm $FPGA_IP:~/sim_slot_0/linux-uniform0-br-base-bin
 echo "copy br-base-bin-kvm to FPGA node successfully"
 
 ./scripts-laputa/start_workload.sh
 echo "infrasetup && runworkload successfully"
 
-mkdir -p ~/firesim/log-laputa
-mkdir -p ~/firesim/firesim-scripts/log-laputa
-LOG_NAME="~/firesim/log-laputa/`date +%Y-%m-%d-%T`"
+mkdir -p $AE_ROOT/log-laputa
+mkdir -p $AE_ROOT/firesim-scripts/log-laputa
+LOG_NAME="$AE_ROOT/log-laputa/`date +%Y-%m-%d-%T`"
 LOG_NAME1="./log-laputa/`date +%Y-%m-%d-%T`"
 echo $LOG_NAME
 echo $LOG_NAME1
